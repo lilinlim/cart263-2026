@@ -8,13 +8,7 @@ let square = {
 }
 
 let r = 50;
-
-let circle = {
-    x: width / 2,
-    y: height / 2,
-    size: r
-}
-
+let alpha = 50;
 let counter = 0;
 
 function setup() {
@@ -26,13 +20,26 @@ function draw() {
     background(100);
 
     drawSquare();
-    drawCircle();
     
     if ((mouseX > 50) && (mouseX < 100) &&
     (mouseY > 50) && (mouseY < 100)) {
         square.fill = square.filled;
     } else {
         square.fill = "#FF8C00";
+    }
+
+    let i = 0;
+    if(counter >=i && counter <=10){
+        let currentR = r;
+        let currentAlpha = alpha;
+        while(i < counter){
+            fill(255, currentAlpha);
+            noStroke();
+            ellipse(width/2, height/2, currentR, currentAlpha);
+            currentR += 20;
+            currentAlpha += 20;
+            i++;
+        }
     }
 }
 
@@ -41,13 +48,6 @@ function drawSquare() {
     noStroke();
     fill(square.fill);
     rect(square.x, square.y, square.w, square.h);
-    pop();
-}
-
-function drawCircle(){
-    push();
-    noStroke();
-    ellipse(circle.x, circle.y, circle.size);
     pop();
 }
 
