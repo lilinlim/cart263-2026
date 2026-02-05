@@ -135,9 +135,18 @@ a background using that color.
 /* 1H: Iterate through the allPTagsThree array and call customCreateElement(), 
 passing the current allPTagsThree element as the parent with each iteration.*/
 /***CODE */
+
 let allPTagsThree = document.getElementsByTagName("p");
 function customCreateElement(parent){
+    let newP = document.createElement("p");
+    newP.innerHTML = "USING CREATE ELEMENT";
+    newP.style.backgroundColor = "green";
+    newP.style.color = "white";
 
+    parentElement.appendChild(newP);
+    for(let pTag of allPTagsThree){
+        customCreateElement(pTag);
+    }
 }
 
 /***EXPLANATION::
@@ -167,6 +176,19 @@ function customCreateElement(parent){
 
 /***CODE */
 
+function customNewBoxCreate(parent){
+    let newDiv = document.createElement("div");
+    newDiv.classList.add("testDiv");
+    parentElement.appendChild(newDiv);
+    return newDiv;
+}
+
+    let gridParent = document.getElementById("new-grid");
+    for(let row = 0; row < 10; row++ ){
+        for(let col = 0; col < 10; col++){
+            let returnedDiv = customNewBoxCreate(newGridParent);
+        }
+    }
 
 /***EXPLANATION::
  * 
@@ -188,6 +210,7 @@ function customCreateElement(parent){
     when dividing by three. */
 
 /***CODE */
+
 
 
 /***EXPLANATION::
