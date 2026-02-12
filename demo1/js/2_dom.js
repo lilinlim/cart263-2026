@@ -1,4 +1,7 @@
 window.onclick = setup
+
+document.querySelector("#two").children[0].innerHTML = "<h2> this is now a header</h2>";
+
 function setup(){
     let newDivTwo = document.createElement("div");
     newDivTwo.classList.add("square_shape");
